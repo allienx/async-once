@@ -6,8 +6,11 @@
   "repository": "https://github.com/allienx/async-once",
   "author": "Alex Lin <allienx@hashmail.com>",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "test": "jest"
+  },
   "devDependencies": {
+    "jest": "^24.9.0",
     "prettier": "1.18.2"
   }
 }
