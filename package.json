@@ -1,0 +1,13 @@
+{
+  "name": "async-once",
+  "version": "1.0.0",
+  "description": "Guarantee an async function is only executed once (with promises).",
+  "main": "src/index.js",
+  "repository": "https://github.com/allienx/async-once",
+  "author": "Alex Lin <allienx@hashmail.com>",
+  "license": "MIT",
+  "scripts": {},
+  "devDependencies": {
+    "prettier": "1.18.2"
+  }
+}
