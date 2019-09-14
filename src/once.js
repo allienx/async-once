@@ -1,6 +1,6 @@
 /*
  * once() creates a closure around an async function to
- * ensure it only has one active async request at a time.
+ * ensure it only has one active execution at a time.
  *
  * Subsequent callers will be returned their own promise.
  * Each promise will be resolved with the async data in
@@ -16,31 +16,32 @@ const once = asyncFn => {
 
   return (...args) => {
     return new Promise(async (resolve, reject) => {
+      queue.push({ resolve, reject })
+
+      // Prevent another asyncFn execution if one is already active.
       if (isActive) {
-        queue.push({ resolve, reject })
         return
       }
 
       isActive = true
 
+      let data
+      let success
+
       try {
-        const result = await asyncFn(...args)
-        resolve(result)
-
-        queue.forEach(fnCall => {
-          fnCall.resolve(result)
-        })
-
-        isActive = false
+        data = await asyncFn(...args)
+        success = true
       } catch (err) {
-        reject(err)
-
-        queue.forEach(fnCall => {
-          fnCall.reject(err)
-        })
-
-        isActive = false
+        data = err
+        success = false
       }
+
+      queue.forEach(obj => {
+        success ? obj.resolve(data) : obj.reject(data)
+      })
+
+      isActive = false
+      queue = []
     })
   }
 }
