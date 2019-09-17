@@ -21,7 +21,7 @@ const asyncFn = once(() => {
   })
 })
 
-// Multiple calls within 1.5s
+// Multiple calls within 1500ms
 asyncFn().then(() => console.log(`First call - ${count}`))
 asyncFn().then(() => console.log(`Second call - ${count}`))
 asyncFn().then(() => console.log(`Third call - ${count}`))
@@ -32,17 +32,30 @@ asyncFn().then(() => console.log(`Third call - ${count}`))
 // First call - 1
 // Second call - 1
 // Third call - 1
-```
 
-This demo can be ran with
+const resolveWithData = once(() => {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve({ name: 'demo' })
+    }, 1500)
+  })
+})
 
-```sh
-yarn demo
+resolveWithData().then(data => console.log(`First call - ${data}`))
+resolveWithData().then(data => console.log(`Second call - ${data}`))
+resolveWithData().then(data => console.log(`Third call - ${data}`))
+
+// Promises are all resolved with the proper data.
+//
+// Output:
+// First call - { name: 'demo' }
+// Second call - { name: 'demo' }
+// Third call - { name: 'demo' }
 ```
 
 ## Use Case
 
-One common use case is for refreshing an access token.
+One possible use case is for refreshing an access token.
 
 - You have multiple network requests that rely on a valid access token.
 - The network requests are trigger simultaneously by different parts of the app.

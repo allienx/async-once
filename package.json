@@ -7,7 +7,6 @@
   "author": "Alex Lin <alexlinpm@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "demo": "node examples/demo.js",
     "test": "jest"
   },
   "devDependencies": {
