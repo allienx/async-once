@@ -58,7 +58,7 @@ resolveWithData().then(data => console.log(`Third call - ${data}`))
 One possible use case is for refreshing an access token.
 
 - You have multiple network requests that rely on a valid access token.
-- The network requests are trigger simultaneously by different parts of the app.
+- The network requests are triggered simultaneously by different parts of the app.
 - You only need one refresh token request to be active at a time.
 
 ## Tests
