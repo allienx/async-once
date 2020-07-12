@@ -6,7 +6,7 @@
  * Each promise will be resolved with the async data in
  * the order they were called.
  */
-const once = asyncFn => {
+const once = (asyncFn) => {
   if (typeof asyncFn !== 'function') {
     throw new Error('once() must be called with an async function.')
   }
@@ -36,7 +36,7 @@ const once = asyncFn => {
         success = false
       }
 
-      queue.forEach(obj => {
+      queue.forEach((obj) => {
         success ? obj.resolve(data) : obj.reject(data)
       })
 

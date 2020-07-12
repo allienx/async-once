@@ -15,7 +15,7 @@ describe('once', () => {
     it('should throw an error', () => {
       const args = [123, 'asdf', [], {}]
 
-      args.forEach(arg => {
+      args.forEach((arg) => {
         expect(() => {
           once(arg)
         }).toThrow()
@@ -36,7 +36,7 @@ describe('once', () => {
       onceFn = once(() => {
         mockFn()
 
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
           setTimeout(() => {
             resolve(asyncData)
           }, 1000)

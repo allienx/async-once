@@ -7,10 +7,11 @@
   "author": "Alex Lin <allienx@hashmail.com>",
   "license": "MIT",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "prettier": "prettier --write src/*.js"
   },
   "devDependencies": {
     "jest": "^24.9.0",
-    "prettier": "^1.18.2"
+    "prettier": "^2.0.5"
   }
 }
