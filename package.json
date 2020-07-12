@@ -11,7 +11,7 @@
     "prettier": "prettier --write src/*.js"
   },
   "devDependencies": {
-    "jest": "^24.9.0",
+    "jest": "^26.1.0",
     "prettier": "^2.0.5"
   }
 }
