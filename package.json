@@ -1,17 +1,13 @@
 {
   "name": "async-once",
-  "version": "1.0.0",
   "description": "Guarantee an async function only has one active execution at a time.",
-  "main": "src/once.js",
-  "repository": "https://github.com/allienx/async-once",
-  "author": "Alex Lin <allienx@hashmail.com>",
-  "license": "MIT",
+  "private": true,
   "scripts": {
     "test": "jest",
     "prettier": "prettier --write src/*.js"
   },
   "devDependencies": {
     "jest": "^26.1.0",
-    "prettier": "^2.0.5"
+    "prettier": "2.0.5"
   }
 }
